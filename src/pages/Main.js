@@ -3,6 +3,8 @@ import { StyleSheet, Image, View, Text } from 'react-native'
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location'
 import MapView, { Marker, Callout } from 'react-native-maps'
 
+import SearchForm from '../components/SearchForm'
+
 const Main = ({ navigation }) => {
 	const [currentRegion, setCurrentRegion] = useState(null)
 
@@ -34,42 +36,48 @@ const Main = ({ navigation }) => {
 	}
 
 	return (
-		<MapView initialRegion={currentRegion} style={styles.map}>
-			<Marker
-				coordinate={{
-					latitude: 41.1466238,
-					longitude: -8.5698438
-				}}
-			>
-				<Image
-					style={styles.avatar}
-					source={{
-						uri:
-							'https://avatars1.githubusercontent.com/u/46088089?v=4'
-					}}
-				/>
-
-				<Callout
-					onPress={() => {
-						navigation.navigate('Profile', {
-							github_username: 'nubelsondev'
-						})
+		<>
+			<MapView initialRegion={currentRegion} style={styles.map}>
+				<Marker
+					coordinate={{
+						latitude: 41.1466238,
+						longitude: -8.5698438
 					}}
 				>
-					<View style={styles.callout}>
-						<Text style={styles.devName}>Nubelson Fernandes</Text>
-						<Text style={styles.devBio}>
-							A 22 years old self-taugth Full-Stack Developer with
-							Node and React from Angola, currently living in
-							Portugal.
-						</Text>
-						<Text style={styles.devTechs}>
-							NodeJS, ReactJS, React Native
-						</Text>
-					</View>
-				</Callout>
-			</Marker>
-		</MapView>
+					<Image
+						style={styles.avatar}
+						source={{
+							uri:
+								'https://avatars1.githubusercontent.com/u/46088089?v=4'
+						}}
+					/>
+
+					<Callout
+						onPress={() => {
+							navigation.navigate('Profile', {
+								github_username: 'nubelsondev'
+							})
+						}}
+					>
+						<View style={styles.callout}>
+							<Text style={styles.devName}>
+								Nubelson Fernandes
+							</Text>
+							<Text style={styles.devBio}>
+								A 22 years old self-taugth Full-Stack Developer
+								with Node and React from Angola, currently
+								living in Portugal.
+							</Text>
+							<Text style={styles.devTechs}>
+								NodeJS, ReactJS, React Native
+							</Text>
+						</View>
+					</Callout>
+				</Marker>
+			</MapView>
+
+			<SearchForm />
+		</>
 	)
 }
 
