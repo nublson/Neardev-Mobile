@@ -1,5 +1,7 @@
 # Neardev (Mobile w/ React Native)
 
+Web version [here](https://github.com/nubelsondev/Neardev).
+
 ![Neardev Preview](./thumbnail.png)
 
 This is the frontend mobile version of Neardev and also the most important part of the project, it will give you access to the map that picks up your current location and you can type in a technology name and all developers using the technology typed within 10 kilometers will be returned.
